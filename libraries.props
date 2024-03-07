@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <PROP_SHEET_PATH>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))</PROP_SHEET_PATH>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalLibraryDirectories>$(OPENCV_DIR)\lib;%CUDA_PATH%\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_core$(OPENCV_VER).lib;opencv_imgcodecs$(OPENCV_VER).lib;opencv_videoio$(OPENCV_VER).lib;opencv_imgproc$(OPENCV_VER).lib;opencv_highgui$(OPENCV_VER).lib;$(PROP_SHEET_PATH)mingw64\lib\libopenblas.dll.a;cudart.lib;cublas.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="OPENCV_VER">
+      <Value>$(OPENCV_VER)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PROP_SHEET_PATH">
+      <Value>$(PROP_SHEET_PATH)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
